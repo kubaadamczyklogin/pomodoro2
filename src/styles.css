@@ -1,0 +1,39 @@
+.App {
+  font-family: sans-serif;
+}
+
+.TimeboxEditor {
+}
+
+.Timebox {
+}
+
+.Clock {
+}
+
+.ProgressBar {
+  border: 1px solid orangered;
+  border-radius: 5px;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 400px;
+}
+
+.ProgressBar > div {
+  height: 100%;
+  background-color: orangered;
+}
+
+.inactive {
+  /* filter: blur(2px) grayscale(1); */
+  color: grey;
+  pointer-events: none;
+}
+
+input {
+  margin: 0 5px 0 0;
+}
+button {
+  margin: 0 5px;
+}
