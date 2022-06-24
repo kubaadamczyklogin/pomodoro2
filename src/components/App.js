@@ -7,7 +7,8 @@ export default function App() {
       <Pomodoro />
       <h3>To Do:</h3>
       <ol>
-        <li>wiodące zero w sekundach</li>
+        <li>stylowanko</li>
+        <li>zmiana kolejności zadań</li>
       </ol>
     </div>
   );
