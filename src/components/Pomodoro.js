@@ -2,6 +2,7 @@ import React from "react";
 import { Timebox } from "./Timebox";
 import { TaskList } from "./TaskList";
 import hour from "./../hour.mp3";
+import { Grid } from "@material-ui/core";
 
 export class Pomodoro extends React.Component {
   constructor(props) {
@@ -107,21 +108,25 @@ export class Pomodoro extends React.Component {
   render() {
     return (
       <>
-        <TaskList
-          onChoose={this.handleOnChoose}
-          isActive={!this.state.isRunning}
-        />
-        <Timebox
-          title={this.state.currentTaskTitle}
-          duration={this.state.currentTaskDuration}
-          timeLeft={this.state.timeLeft}
-          isRunning={this.state.isRunning}
-          isPaused={this.state.isPaused}
-          onStart={this.handleStart}
-          onStop={this.handleStop}
-          onPause={this.togglePause}
-          pausesCount={this.state.pausesCount}
-        />
+        <Grid item xs={12} sm={6} lg={4}>
+          <Timebox
+            title={this.state.currentTaskTitle}
+            duration={this.state.currentTaskDuration}
+            timeLeft={this.state.timeLeft}
+            isRunning={this.state.isRunning}
+            isPaused={this.state.isPaused}
+            onStart={this.handleStart}
+            onStop={this.handleStop}
+            onPause={this.togglePause}
+            pausesCount={this.state.pausesCount}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} lg={4}>
+          <TaskList
+            onChoose={this.handleOnChoose}
+            isActive={!this.state.isRunning}
+          />
+        </Grid>
       </>
     );
   }

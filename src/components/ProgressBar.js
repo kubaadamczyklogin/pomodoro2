@@ -1,9 +1,12 @@
 import React from "react";
+import { LinearProgress } from "@material-ui/core";
 
-export function ProgressBar({ className = "", percent = 33 }) {
+export function ProgressBar(props) {
   return (
-    <div className={"ProgressBar " + className}>
-      <div style={{ width: `${percent}%` }}></div>
-    </div>
+    <LinearProgress
+      className="ProgressBar"
+      variant="determinate"
+      value={props.percent}
+    />
   );
 }
