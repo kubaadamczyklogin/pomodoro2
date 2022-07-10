@@ -35,7 +35,7 @@ export class Timebox extends React.Component {
           </Typography>
           <Clock minutes={minutesLeft} seconds={secondsLeft} />
           <ProgressBar percent={progressInPercent} />
-          <Box m={50}>
+          <Box>
             <ButtonGroup
               variant="text"
               color="primary"
