@@ -6,9 +6,9 @@ import { TaskCreator } from "./TaskCreator";
 export class TaskList extends React.Component {
   state = {
     tasks: [
-      { id: uuidv4(), title: "timebox 1", duration: 0.3 },
-      { id: uuidv4(), title: "timebox 6", duration: 1 },
-      { id: uuidv4(), title: "timebox 3", duration: 25 }
+      { id: uuidv4(), title: "Zadanie 1", duration: 1 },
+      { id: uuidv4(), title: "Zadanie 2", duration: 3 },
+      { id: uuidv4(), title: "Zadanie 3", duration: 25 }
     ]
   };
 

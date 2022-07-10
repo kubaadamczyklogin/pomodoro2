@@ -8,13 +8,13 @@ export class Pomodoro extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTaskTitle: "Wybierz zadanie",
-      currentTaskDuration: 60 * 1000,
+      currentTaskTitle: "Niewybrano zadania",
+      currentTaskDuration: 25 * 60 * 1000,
       isRunning: false,
       isPaused: false,
       isFinish: false,
       pausesCount: 0,
-      timeLeft: 60 * 1000,
+      timeLeft: 25 * 60 * 1000,
       startTime: 0,
       finishTime: 0
     };

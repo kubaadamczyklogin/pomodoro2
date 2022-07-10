@@ -23,8 +23,10 @@ export default function App() {
                     To Do:
                   </Typography>
                   <List>
-                    <ListItem>stylowanko</ListItem>
-                    <ListItem>zmiana kolejności zadań</ListItem>
+                    <ListItem>Poprawienie stanu na start</ListItem>
+                    <ListItem>Poprawienie styli timeboxa</ListItem>
+                    <ListItem>Przepisanie listy zadań do Material Ui</ListItem>
+                    <ListItem>Możliwość zmiany kolejności zadań</ListItem>
                   </List>
                 </CardContent>
               </Card>
