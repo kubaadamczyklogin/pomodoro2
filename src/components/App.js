@@ -23,10 +23,10 @@ export default function App() {
                     To Do:
                   </Typography>
                   <List>
-                    <ListItem>Poprawienie stanu na start</ListItem>
-                    <ListItem>Poprawienie styli timeboxa</ListItem>
-                    <ListItem>Przepisanie listy zadań do Material Ui</ListItem>
-                    <ListItem>Możliwość zmiany kolejności zadań</ListItem>
+                    <ListItem>Poprawienie styli</ListItem>
+                    <ListItem>
+                      Przepisanie dodawania zadania do Material Ui
+                    </ListItem>
                   </List>
                 </CardContent>
               </Card>

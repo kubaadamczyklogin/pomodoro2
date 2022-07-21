@@ -30,6 +30,9 @@ export class Timebox extends React.Component {
     return (
       <Card className="Timebox">
         <CardContent>
+          <Typography variant="h6" component="h2">
+            Pomodoro Timer
+          </Typography>
           <Typography variant="h4" component="h2">
             {this.props.title}
           </Typography>
@@ -43,15 +46,15 @@ export class Timebox extends React.Component {
             >
               <Button
                 onClick={this.props.onStart}
-                disabled={this.props.isRunning}
+                disabled={this.props.isRunning && !this.props.isPaused}
               >
                 <PlayArrowRounded />
               </Button>
               <Button
                 onClick={this.props.onPause}
-                disabled={!this.props.isRunning}
+                disabled={!this.props.isRunning || this.props.isPaused}
               >
-                {this.props.isPaused ? <PauseRounded /> : <PauseRounded />}
+                <PauseRounded />
               </Button>
               <Button
                 onClick={this.props.onStop}

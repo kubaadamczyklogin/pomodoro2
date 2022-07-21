@@ -34,13 +34,20 @@ export class Pomodoro extends React.Component {
   handleStart = () => {
     const currentTime = Date.now();
 
-    this.setState({
-      pausesCount: 0,
-      timeLeft: this.state.currentTaskDuration,
-      isRunning: true,
-      startTime: currentTime,
-      finishTime: currentTime + this.state.currentTaskDuration
-    });
+    if (!this.state.isPaused) {
+      this.setState({
+        pausesCount: 0,
+        timeLeft: this.state.currentTaskDuration,
+        isRunning: true,
+        startTime: currentTime,
+        finishTime: currentTime + this.state.currentTaskDuration
+      });
+    } else {
+      this.setState({
+        finishTime: currentTime + this.state.timeLeft,
+        isPaused: false
+      });
+    }
 
     this.startTimer();
   };
@@ -84,25 +91,14 @@ export class Pomodoro extends React.Component {
     this.backgroundTimer.currentTime = 0;
   }
 
-  togglePause = () => {
-    const isPaused = this.state.isPaused;
-    const currentTime = Date.now();
-
-    if (isPaused) {
-      this.setState({
-        finishTime: currentTime + this.state.timeLeft,
-        isPaused: false
-      });
-      this.startTimer();
-    } else {
-      this.setState((prevState) => {
-        return {
-          isPaused: true,
-          pausesCount: prevState.pausesCount + 1
-        };
-      });
-      this.stopTimer();
-    }
+  handlePause = () => {
+    this.setState((prevState) => {
+      return {
+        isPaused: true,
+        pausesCount: prevState.pausesCount + 1
+      };
+    });
+    this.stopTimer();
   };
 
   render() {
@@ -117,7 +113,7 @@ export class Pomodoro extends React.Component {
             isPaused={this.state.isPaused}
             onStart={this.handleStart}
             onStop={this.handleStop}
-            onPause={this.togglePause}
+            onPause={this.handlePause}
             pausesCount={this.state.pausesCount}
           />
         </Grid>

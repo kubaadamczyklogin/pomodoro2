@@ -2,6 +2,13 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TaskItem } from "./TaskItem";
 import { TaskCreator } from "./TaskCreator";
+import {
+  Card,
+  CardContent,
+  Typography,
+  List,
+  ListItem
+} from "@material-ui/core";
 
 export class TaskList extends React.Component {
   state = {
@@ -60,34 +67,39 @@ export class TaskList extends React.Component {
     const activeClass = this.props.isActive ? "" : " inactive";
 
     return (
-      <div className={"TaskList" + activeClass}>
-        <TaskCreator onConfirm={this.handleTaskAdd} />
-        <ol>
-          {this.state.tasks.map((task) =>
-            task.editing ? (
-              <li key={task.id}>
-                <TaskCreator
+      <Card className={"TaskList" + activeClass}>
+        <CardContent>
+          <Typography variant="h6" component="h2">
+            Lista zadań
+          </Typography>
+          <TaskCreator onConfirm={this.handleTaskAdd} />
+          <List>
+            {this.state.tasks.map((task) =>
+              task.editing ? (
+                <ListItem key={task.id}>
+                  <TaskCreator
+                    id={task.id}
+                    title={task.title}
+                    duration={task.duration}
+                    isEditing={true}
+                    onConfirm={this.handleTaskEdit}
+                  />
+                </ListItem>
+              ) : (
+                <TaskItem
+                  key={task.id}
                   id={task.id}
                   title={task.title}
                   duration={task.duration}
-                  isEditing={true}
-                  onConfirm={this.handleTaskEdit}
+                  onDelete={() => this.handleTaskDelete(task.id)}
+                  onEdit={() => this.handleTaskBindCreator(task.id)}
+                  onChoose={() => this.props.onChoose(task)}
                 />
-              </li>
-            ) : (
-              <TaskItem
-                key={task.id}
-                id={task.id}
-                title={task.title}
-                duration={task.duration}
-                onDelete={() => this.handleTaskDelete(task.id)}
-                onEdit={() => this.handleTaskBindCreator(task.id)}
-                onChoose={() => this.props.onChoose(task)}
-              />
-            )
-          )}
-        </ol>
-      </div>
+              )
+            )}
+          </List>
+        </CardContent>
+      </Card>
     );
   }
 }
