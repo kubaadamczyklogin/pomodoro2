@@ -33,7 +33,11 @@ export class Timebox extends React.Component {
           <Typography variant="h6" component="h2">
             Pomodoro Timer
           </Typography>
-          <Typography variant="h4" component="h2">
+          <Typography
+            variant="h4"
+            component="h2"
+            style={{ marginTop: 10, marginBottom: 10 }}
+          >
             {this.props.title}
           </Typography>
           <Clock minutes={minutesLeft} seconds={secondsLeft} />
@@ -64,7 +68,7 @@ export class Timebox extends React.Component {
               </Button>
             </ButtonGroup>
           </Box>
-          <Typography component="p">
+          <Typography component="p" style={{ marginTop: 10 }}>
             Liczba przerw: {this.props.pausesCount}
           </Typography>
         </CardContent>

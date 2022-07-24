@@ -4,9 +4,9 @@ import {
   ListItemText,
   Typography,
   Box,
-  ButtonGroup,
   Button
 } from "@material-ui/core";
+import { TaskCreatorButton } from "./TaskCreatorButton";
 
 export function TaskItem(props) {
   return (
@@ -24,19 +24,19 @@ export function TaskItem(props) {
         }
         secondary={
           <Box>
-            <Button
-              color="primary"
-              variant="outlined"
-              size="small"
-              onClick={props.onEdit}
-            >
-              Zmień
-            </Button>
+            <TaskCreatorButton
+              onConfirm={props.onEdit}
+              taskid={props.id}
+              taskTitle={props.title}
+              taskDuration={props.duration}
+              isEditing={true}
+            />
             <Button
               color="primary"
               variant="outlined"
               size="small"
               onClick={props.onDelete}
+              style={{ marginLeft: 10, marginRight: 10 }}
             >
               Usuń
             </Button>

@@ -7,6 +7,7 @@ export function ProgressBar(props) {
       className="ProgressBar"
       variant="determinate"
       value={props.percent}
+      style={{ marginTop: 10, marginBottom: 10 }}
     />
   );
 }
