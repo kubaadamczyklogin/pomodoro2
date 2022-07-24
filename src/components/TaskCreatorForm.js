@@ -29,7 +29,7 @@ export class TaskCreatorForm extends React.Component {
           <form onSubmit={this.handleSubmit} className={"TaskCreator"}>
             <TextField
               defaultValue={this.props.taskTitle}
-              ref={this.titleInput}
+              inputRef={this.titleInput}
               type="text"
               label="Zadanie"
               variant="outlined"
@@ -42,7 +42,7 @@ export class TaskCreatorForm extends React.Component {
                   ? this.props.taskDuration
                   : this.defaultDuration
               }
-              ref={this.durationInput}
+              inputRef={this.durationInput}
               type="number"
               label="Czas"
               variant="outlined"

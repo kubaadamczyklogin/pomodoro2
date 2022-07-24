@@ -24,20 +24,7 @@ export class TaskList extends React.Component {
     });
   };
 
-  handleTaskBindCreator = (idToEdit) => {
-    this.setState((prevState) => {
-      const tasks = prevState.tasks.map((item) => {
-        item.editing = item.id === idToEdit;
-        return item;
-      });
-      return {
-        tasks
-      };
-    });
-  };
-
   handleTaskAdd = (taskToAdd) => {
-    this.handleTaskBindCreator(false);
     this.setState((prevState) => {
       const tasks = [...prevState.tasks, taskToAdd];
       return {
